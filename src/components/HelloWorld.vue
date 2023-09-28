@@ -33,7 +33,8 @@ const count = ref(0)
 
 <style scoped lang="scss">
 .read-the-docs {
-  color: #888;
   font-family: $a-font;
+  cursor: not-allowed;
+  color: #888;
 }
 </style>
