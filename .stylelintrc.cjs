@@ -19,6 +19,7 @@ module.exports = {
   ],
   ignoreFiles: [
     '**/*.js',
+    '**/*.cjs',
     '**/*.jsx',
     '**/*.tsx',
     '**/*.ts',
@@ -27,6 +28,9 @@ module.exports = {
     '**/*.yaml'
   ],
   rules: {
+    // import中保留扩展名
+    'scss/at-import-partial-extension': 'always',
+    // 禁止不合法的颜色值
     'color-no-invalid-hex': true,
     'font-family-no-missing-generic-family-keyword': true,
     'function-calc-no-unspaced-operator': true,

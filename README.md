@@ -17,7 +17,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## 技术栈
+## Features
 
 - 编程语言 `Typescript`
 - 构建项目 `Vite`
@@ -29,6 +29,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - CSS预编译 `Sass`
 - HTTP库 `Axios`
 - 代码规范 `Eslint` + `Prettier` + `Stylelint`
+  - `[stylelint-scss](https://github.com/stylelint-scss/stylelint-scss)`
 - 提交规范 `Commitlint` + `Husky`
 - 图标库 `Icônes`
 - 其他插件
