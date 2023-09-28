@@ -29,7 +29,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - CSS预编译 `Sass`
 - HTTP库 `Axios`
 - 代码规范 `Eslint` + `Prettier` + `Stylelint`
-- 提交规范 `Commitlint`
+- 提交规范 `Commitlint` + `Husky`
 - 图标库 `Icônes`
 - 其他插件
   - `VueUse` 基于Vue组合式API的实用工具集
