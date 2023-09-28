@@ -18,6 +18,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## 技术栈
+
 - 编程语言 `Typescript`
 - 构建项目 `Vite`
 - 前端框架 `Vue3`
@@ -31,4 +32,4 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - 提交规范 `Commitlint`
 - 图标库 `Icônes`
 - 其他插件
-   - `VueUse` 基于Vue组合式API的实用工具集
+  - `VueUse` 基于Vue组合式API的实用工具集
