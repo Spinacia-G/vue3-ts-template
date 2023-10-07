@@ -1,0 +1,24 @@
+import axios from 'axios'
+
+const service = axios.create({
+  baseURL: import.meta.env.VITE_BASE_API,
+  timeout: 2 * 60 * 1000,
+  withCredentials: true
+})
+
+service.interceptors.request.use(config => {
+  const token = 'anything'
+  config.headers['Authorization'] = `Bearer ${token}`
+  return config
+})
+
+service.interceptors.response.use(
+  response => {
+    return Promise.resolve(response.data)
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
+
+export default service
