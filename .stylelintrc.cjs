@@ -42,6 +42,8 @@ module.exports = {
     'property-no-unknown': true,
     // 禁止块中出现重复属性名
     'declaration-block-no-duplicate-properties': true,
+    // 允许空的<style>
+    'no-empty-source': null,
     'no-descending-specificity': null,
     'selector-pseudo-element-no-unknown': [
       true,
