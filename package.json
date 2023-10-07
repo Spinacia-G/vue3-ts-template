@@ -13,15 +13,18 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@types/nprogress": "^0.2.1",
     "axios": "^1.5.1",
     "element-plus": "^2.3.14",
+    "js-cookie": "^3.0.5",
     "nprogress": "^0.2.0",
+    "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.4",
     "@types/node": "^20.7.1",
+    "@types/nprogress": "^0.2.1",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "@vitejs/plugin-vue": "^4.2.3",

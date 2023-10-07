@@ -22,8 +22,8 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref, onUnmounted } from 'vue'
 import { UserInfo } from '@/types/user.types.ts'
-import router from '@/router'
 import { FormInstance, FormRules } from 'element-plus'
+import { useAuthStore } from '@/store'
 
 const loginFormRef = ref<FormInstance>()
 const loginForm = reactive<UserInfo>({
@@ -58,9 +58,8 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (!valid) {
       return
     } else {
-      router.push({
-        name: 'home'
-      })
+      const { login } = useAuthStore()
+      login(loginForm)
     }
   })
 }

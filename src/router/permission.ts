@@ -1,7 +1,11 @@
 import { Router } from 'vue-router'
 import NProgress from 'nprogress'
+import { useAuthStore } from '@/store'
+import { ElMessage } from 'element-plus'
 
 export const usePermission = (router: Router) => {
+  const whiteList = ['/login', '/404']
+
   NProgress.configure({ showSpinner: false })
 
   router.beforeEach((to, _, next) => {
@@ -10,8 +14,18 @@ export const usePermission = (router: Router) => {
       next({
         name: 'error'
       })
-    } else {
+    } else if (whiteList.includes(to.path)) {
       next()
+    } else {
+      const { hasToken } = useAuthStore()
+      if (!hasToken) {
+        ElMessage.warning('Unauthorized! Please sign in!')
+        next({
+          name: 'login'
+        })
+      } else {
+        next()
+      }
     }
   })
 

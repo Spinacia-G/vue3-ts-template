@@ -1,16 +1,12 @@
 <template>
-  <div>hello</div>
+  <div>hello, {{ username }}</div>
   <el-button @click="logout">Logout</el-button>
 </template>
 
 <script lang="ts" setup>
-import router from '@/router'
+import { useAuthStore } from '@/store'
 
-const logout = () => {
-  router.push({
-    name: 'login'
-  })
-}
+const { logout, username } = useAuthStore()
 </script>
 
 <style lang="scss" scoped></style>
