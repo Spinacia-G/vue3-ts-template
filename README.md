@@ -17,6 +17,13 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
+## Branches
+
+| Branch Name | Features |
+| :-- | :-- |
+| [main](https://github.com/SpinaciaKeh/vue3-ts-template) | [base features](#features) |
+| map-2d | base features & map class (with openlayers) |
+
 ## Features
 
 - 编程语言 `Typescript`
@@ -30,7 +37,23 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - HTTP库 `Axios`
 - 代码规范 `Eslint` + `Prettier` + `Stylelint`
   - `[stylelint-scss](https://github.com/stylelint-scss/stylelint-scss)`
-- 提交规范 `Commitlint` + `Husky`
-- 图标库 `Icônes`
+- 提交规范 `Commitlint` + `Husky` (to-do)
 - 其他插件
-  - `VueUse` 基于Vue组合式API的实用工具集
+  - `VueUse` 基于Vue组合式API的实用工具集 (to-do)
+
+## Project Structure
+
+- `api` 接口
+- `asserts` 静态资源
+- `components` 公共组件
+- `config` 全局配置文件
+- `router` 路由
+- `store` 全局状态管理器
+- `styles` 样式文件
+- `types` 类型声明
+- `utils` 工具库
+- `views` 视图
+
+## Map Features
+
+- (to-do)
