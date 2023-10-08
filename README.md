@@ -51,24 +51,26 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - 状态管理 `Pinia`
   - `setup store`
 - UI框架 `Element Plus`
-  - 基于插件`unplugin-vue-components`和`unplugin-auto-imports`的组件自动导入
+  - 基于插件`unplugin-vue-components`和`unplugin-auto-imports`实现组件自动导入
 - CSS预编译 `Sass`
   - css reset
   - 响应式布局
   - 在`/styles/variables.scss`中创建的全局变量，不需要显示导入
 - HTTP库 `Axios`
-  - 基础的封装
+  - 封装
 - 代码规范 `Eslint` + `Prettier` + `Stylelint`
-  - `[stylelint-scss](https://github.com/stylelint-scss/stylelint-scss)`规则根据个人习惯进行配置
+  - [`stylelint-scss`](https://github.com/stylelint-scss/stylelint-scss)规则根据个人习惯进行配置
   - 基于插件`eslint-config-prettier`和`eslint-plugin-prettier`处理`eslint`和`prettier`的冲突
   - 配置脚本`lint`、`format`和`lint:style`
 - 提交规范 `Commitlint`(**to-do**) + `Husky`
 - 其他
   - 一个完整的登录登出逻辑，在`cookie`中保存`token`
   - 打包完成后自动压缩成`.zip`文件并存放到`/release`目录下 (**to-do**)
-  - `[VueUse](https://vueuse.org/functions.html)` 基于Vue组合式API的实用工具集
-    - `[useWebsocket](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/useWebSocket/index.md)` 通过`protocols`携带`token`
-    - `[onClickOutside](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/onClickOutside/index.md)`
+  - [`VueUse`](https://vueuse.org/functions.html) 基于Vue组合式API的实用工具集
+    - [`useWebsocket`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/useWebSocket/index.md) 通过`protocols`携带`token`
+    - [`onClickOutside`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/onClickOutside/index.md)
+    - [`useFullscreen`](https://github.com/vueuse/vueuse/blob/main/packages/core/useFullscreen/index.md)
+    - [`useDraggable`](https://github.com/vueuse/vueuse/blob/main/packages/core/useDraggable/index.md)
   - unit test (**to-do**)
 
 ## Map Features
