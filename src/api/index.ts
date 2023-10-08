@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getToken } from '@/utils/cookie.utils.ts'
 
 const service = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
@@ -7,8 +8,7 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(config => {
-  const token = 'anything'
-  config.headers['Authorization'] = `Bearer ${token}`
+  config.headers['Authorization'] = `Bearer ${getToken()}`
   return config
 })
 

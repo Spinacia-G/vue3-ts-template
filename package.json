@@ -8,8 +8,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "format": "prettier --write \"./**/*.{html,vue,ts,js,cjs,json,md}\"",
-    "lint:style": "stylelint \"./**/*.{css,scss,vue,html}\" --fix",
+    "format": "prettier --write \"src/**/*.{html,vue,ts,js,cjs,json,md}\"",
+    "lint:style": "stylelint \"src/**/*.{css,scss,vue,html}\" --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "axios": "^1.5.1",
     "element-plus": "^2.3.14",
     "js-cookie": "^3.0.5",
+    "jszip": "^3.10.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",

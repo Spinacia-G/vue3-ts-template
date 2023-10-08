@@ -65,12 +65,15 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 - 提交规范 `Commitlint`(**to-do**) + `Husky`
 - 其他
   - 一个完整的登录登出逻辑，在`cookie`中保存`token`
-  - 打包完成后自动压缩成`.zip`文件并存放到`/release`目录下 (**to-do**)
-  - [`VueUse`](https://vueuse.org/functions.html) 基于Vue组合式API的实用工具集
-    - [`useWebsocket`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/useWebSocket/index.md) 通过`protocols`携带`token`
-    - [`onClickOutside`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/onClickOutside/index.md)
-    - [`useFullscreen`](https://github.com/vueuse/vueuse/blob/main/packages/core/useFullscreen/index.md)
-    - [`useDraggable`](https://github.com/vueuse/vueuse/blob/main/packages/core/useDraggable/index.md)
+  - 打包完成后自动将`/dist`压缩成`.zip`文件并存放到`/release`目录下
+    - 基于`jszip`实现
+    - 压缩文件自动复制到剪贴板 (**to-do**)
+    - (options) 可选择不压缩直接自动复制`/dist` (**to-do**)
+  - [`VueUse`](https://vueuse.org/functions.html) 基于Vue组合式API的实用工具集，几个常用的方法：
+    - [`useWebsocket`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/useWebSocket/index.md) websocket相关的操作，通过`protocols`携带`token`
+    - [`onClickOutside`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/onClickOutside/index.md) 点击空白区域关闭弹窗
+    - [`useFullscreen`](https://github.com/vueuse/vueuse/blob/main/packages/core/useFullscreen/index.md) 全屏
+    - [`useDraggable`](https://github.com/vueuse/vueuse/blob/main/packages/core/useDraggable/index.md) 弹窗拖拽
   - unit test (**to-do**)
 
 ## Map Features
