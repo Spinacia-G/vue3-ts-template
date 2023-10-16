@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"src/**/*.{html,vue,ts,js,cjs,json,md}\"",
     "lint:style": "stylelint \"src/**/*.{css,scss,vue,html}\" --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "zip": "python plugins/zip.py test"
   },
   "dependencies": {
     "@vueuse/core": "^10.5.0",
@@ -53,6 +54,7 @@
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
+    "vite-plugin-compression2": "^0.10.5",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^1.8.5"
   }

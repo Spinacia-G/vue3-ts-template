@@ -5,7 +5,6 @@ import eslintPlugin from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import zipPack from './plugins/zip-pack'
 
 const pathSrc = path.resolve(__dirname, 'src')
 export default defineConfig({
@@ -24,8 +23,13 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
       dts: path.resolve(pathSrc, 'components.d.ts')
-    }),
-    zipPack()
+    })
+    // compression({
+    //   algorithm: 'gzip', // 压缩算法 'gzip' | 'brotliCompress' | 'deflate' | 'deflateRaw'
+    //   deleteOriginalAssets: true, // 压缩后删除源文件
+    //   threshold: 10 * 1024 // 对大于10kb的文件进行压缩
+    // }),
+    // zipPack()
   ],
   resolve: {
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
