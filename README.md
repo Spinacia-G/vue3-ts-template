@@ -73,16 +73,16 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     - 组件 / 视图 - `pascal case` _such as `HomePage`_
     - 静态资源 / 工具类方法 - `kebab case` _such as `user-info.png`_
     - 变量 - `lower camel case` _such as `loginApi`_
-  - 打包完成后自动将`/dist`压缩成`.zip`文件并存放到`/release`目录下
-    - 基于`jszip`实现
-    - `/release`目录在`.gitignore`中被忽略
   - [`VueUse`](https://vueuse.org/functions.html) 基于Vue组合式API的实用工具集，几个常用的方法：
     - [`useWebsocket`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/useWebSocket/index.md) - websocket相关的操作，通过`protocols`携带`token`
     - [`onClickOutside`](https://github.com/vueuse/vueuse/blob/aca6a79227f7f8b06760d756dfbb4cc5958b445d/packages/core/onClickOutside/index.md) - 点击空白区域关闭弹窗
     - [`useFullscreen`](https://github.com/vueuse/vueuse/blob/main/packages/core/useFullscreen/index.md) - 全屏
     - [`useDraggable`](https://github.com/vueuse/vueuse/blob/main/packages/core/useDraggable/index.md) - 弹窗拖拽
   - unit test (**to-do**)
-  - `/plugins/zip.py` python脚本文件，压缩打包文件为zip格式并复制到剪贴板，在package.json中运行zip脚本
+  - `/plugins/zip.py` python脚本文件，将打包文件压缩为zip格式并复制到剪贴板
+    - 在`package.json`中配置`zip`脚本，自动执行python指令，参数从命令行传入
+    - 压缩文件默认输出到`/release`目录，在`.gitignore`中被忽略
+    - 输出目录可选 (**to-do**)
 
 ## Map Features
 
