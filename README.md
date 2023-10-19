@@ -1,21 +1,5 @@
-# Vue 3 + TypeScript + Vite
-
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support For `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+# Project Template
+基于`Vue3`、`Typescript`、`Vite`的项目模板
 
 ## Branches
 
@@ -66,7 +50,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
   - [`stylelint-scss`](https://github.com/stylelint-scss/stylelint-scss)规则根据个人习惯进行配置
   - 基于插件`eslint-config-prettier`和`eslint-plugin-prettier`处理`eslint`和`prettier`的冲突
   - 配置脚本`lint`、`format`和`lint:style`
-- 提交规范 `Commitlint`(**to-do**) + `Husky`
+- 提交规范 `Husky`
 - 其他
   - 一个完整的登录登出逻辑，在`cookie`中保存`token`
   - 命名规范：
@@ -87,3 +71,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 ## Map Features
 
 - 封装地图相关的一些常用功能 (**to-do**)
+
+## Other TODO
+
+- 根据实际项目开发情况完善eslint等校验规则的配置
