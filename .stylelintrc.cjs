@@ -40,11 +40,17 @@ module.exports = {
     'unit-no-unknown': true,
     // 禁止未知的属性名
     'property-no-unknown': true,
+    // 不检测css变量名大小写
+    'value-keyword-case': null,
     // 禁止块中出现重复属性名
     'declaration-block-no-duplicate-properties': true,
     // 允许空的<style>
     'no-empty-source': null,
     'no-descending-specificity': null,
+    // 允许类名中出现'__'的语法
+    "selector-class-pattern": null,
+    "property-no-vendor-prefix": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     'selector-pseudo-element-no-unknown': [
       true,
       {
