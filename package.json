@@ -14,6 +14,7 @@
     "zip": "python plugins/zip.py test"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^10.5.0",
     "axios": "^1.5.1",
     "element-plus": "^2.3.14",
@@ -52,6 +53,7 @@
     "stylelint-scss": "^5.2.1",
     "typescript": "^5.0.2",
     "unplugin-auto-import": "^0.16.6",
+    "unplugin-icons": "^0.15.2",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.5",
     "vite-plugin-compression2": "^0.10.5",

@@ -4,6 +4,8 @@ import path from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // import compression from 'vite-plugin-compression2'
 
@@ -18,12 +20,25 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue'],
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          prefix: 'Icon'
+        })
+      ],
       dts: path.resolve(pathSrc, 'auto-imports.d.ts')
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({
+          enabledCollections: ['ep']
+        })
+      ],
       dts: path.resolve(pathSrc, 'components.d.ts')
+    }),
+    Icons({
+      autoInstall: true
     })
     // compression({
     //   threshold: 20 * 1024 // 对大于20kb的文件进行压缩
