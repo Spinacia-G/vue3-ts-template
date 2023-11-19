@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // import compression from 'vite-plugin-compression2'
 
 const pathSrc = path.resolve(__dirname, 'src')
@@ -39,6 +40,10 @@ export default defineConfig({
     }),
     Icons({
       autoInstall: true
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      symbolId: 'icon-[dir]-[name]'
     })
     // compression({
     //   threshold: 20 * 1024 // 对大于20kb的文件进行压缩

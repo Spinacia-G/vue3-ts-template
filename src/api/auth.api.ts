@@ -1,4 +1,4 @@
-import { UserInfo } from '@/types/user.types.ts'
+import { UserInfo } from '@/types/user.d.ts'
 
 /**
  * 模拟http响应的数据类型
@@ -16,7 +16,7 @@ interface SimulateResponse<T> {
 const users: UserInfo[] = [
   {
     username: 'Admin001',
-    password: 'Admin123456'
+    password: 'S9wYfzmvqkdeVBV--'
   }
 ]
 

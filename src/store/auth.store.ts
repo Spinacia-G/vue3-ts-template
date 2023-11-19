@@ -3,7 +3,7 @@ import { getToken, removeToken, setToken } from '@/utils/cookie.utils.ts'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
 import { loginApi, logoutApi } from '@/api/auth.api.ts'
-import { UserInfo } from '@/types/user.types.ts'
+import { UserInfo } from '@/types/user.d.ts'
 
 export const useAuthStore = defineStore('auth', () => {
   const username = ref<string>('')

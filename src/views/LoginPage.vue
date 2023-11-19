@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref, onUnmounted } from 'vue'
-import { UserInfo } from '@/types/user.types.ts'
+import { UserInfo } from '@/types/user.d.ts'
 import { FormInstance, FormRules } from 'element-plus'
 import { useAuthStore } from '@/store'
 

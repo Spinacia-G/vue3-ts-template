@@ -27,6 +27,7 @@
 - 编程语言 `Typescript`
 - 构建项目 `Vite`
   - `vite-plugin-compression` 对打包资源进行gzip压缩
+  - [`vite-plugin-svg-icons`](https://github.com/vbenjs/vite-plugin-svg-icons) 引入svg图标的解决方案
 - 前端框架 `Vue3`
   - `<script setup>`
 - 包管理 `pnpm`
@@ -38,6 +39,7 @@
   - `setup store`
 - UI框架 `Element Plus`
   - 基于插件`unplugin-vue-components`和`unplugin-auto-imports`实现组件自动导入
+  - `el-input`自动focus：`<el-input v-input-focus />`
 - CSS预编译 `Sass`
   - css reset
   - 响应式布局
@@ -75,3 +77,52 @@
 ## Other TODO
 
 - 根据实际项目开发情况完善eslint等校验规则的配置
+
+---
+
+#### window全局变量声明
+
+1、在`types/window.d.ts`中配置
+
+```typescript
+export {}
+
+declare global {
+  interface Window {
+    valName: any
+  }
+}
+```
+
+#### UI fit
+
+1、安装依赖包
+
+`pnpm add postcss-pxtorem`
+
+`pnpm add amfe-flexible`
+
+2、在vite.config.ts中配置
+
+```typescript
+import postCssPxToRem from 'postcss-pxtorem'
+...
+css: {
+    postcss: {
+      plugins: [
+        postCssPxToRem({
+          // UI: 1920 * ...
+          rootValue: 192,
+          propList: ['*']
+        })
+      ]
+    }
+  }
+```
+
+3、在main.ts中引入
+
+```typescript
+import 'amfe-flexible'
+```
+
