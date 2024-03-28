@@ -44,6 +44,7 @@
   - css reset
   - 响应式布局
   - 在`/src/styles/variables.scss`中创建的全局变量，不需要显示导入
+- Atomic CSS `tailwindcss`
 - HTTP库 `Axios`
   - 封装
   - examples (**to-do**)
@@ -54,7 +55,8 @@
   - 配置脚本`lint`、`format`和`lint:style`
 - 提交规范 `Husky`
 - 其他
-  - 一个完整的登录登出逻辑，在`cookie`中保存`token`
+  - 几种常用的加密方式：`RSA`、`AES`、`sm2`、`sm4`
+  - 一个完整的登录登出流程，在`cookie`中保存`token`，在顶部导航栏组件的`onMounted`阶段根据token请求用户信息，如果token过期，自动返回到登录页面
   - 命名规范：
     - 组件 / 视图 - `pascal case` _such as `HomePage`_
     - 静态资源 / 工具类方法 - `kebab case` _such as `user-info.png`_
@@ -77,6 +79,7 @@
 ## Other TODO
 
 - 根据实际项目开发情况完善eslint等校验规则的配置
+- 引入其他常用的公共组件
 
 ---
 

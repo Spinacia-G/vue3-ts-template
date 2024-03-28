@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { useAuthStore } from '@/store'
 import { getInfoApi, logoutApi } from '@/api/auth.api.ts'
-import { getToken, removeToken } from '@/utils/cookie.utils.ts'
+import { getToken, removeToken } from '@/utils/cookie.ts'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
 

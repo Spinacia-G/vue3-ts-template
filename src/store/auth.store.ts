@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getToken } from '@/utils/cookie.utils.ts'
+import { getToken } from '@/utils/cookie.ts'
 import type { UserInfo } from '@/types/auth'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -26,6 +26,10 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  /**
+   * 判断token是否存在
+   * @type {ComputedRef<boolean>}
+   */
   const hasToken = computed<boolean>(() => {
     if (token.value) {
       return true

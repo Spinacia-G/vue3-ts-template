@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken } from '@/utils/cookie.utils.ts'
+import { getToken } from '@/utils/cookie.ts'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
 
