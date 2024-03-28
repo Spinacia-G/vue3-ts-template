@@ -29,7 +29,7 @@ import { useAuthStore } from '@/store'
 import { loginApi } from '@/api/auth.api.ts'
 import { sm2Encrypt } from '@/utils/sm.ts'
 import { Md5 } from 'ts-md5'
-import { setToken } from '@/utils/cookie.utils.ts'
+import { setToken } from '@/utils/cookie.ts'
 import router from '@/router'
 import { LoginFormType } from '@/types/auth'
 
