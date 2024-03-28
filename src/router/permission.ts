@@ -19,7 +19,7 @@ export const usePermission = (router: Router) => {
     } else {
       const { hasToken } = useAuthStore()
       if (!hasToken) {
-        ElMessage.warning('Unauthorized! Please sign in!')
+        ElMessage.warning('登录状态过期，请重新登录!')
         next({
           name: 'login'
         })

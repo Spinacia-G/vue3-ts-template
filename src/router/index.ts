@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -9,9 +9,20 @@ const router = createRouter({
       component: () => import('@/App.vue'),
       children: [
         {
-          path: 'home',
+          path: '',
           name: 'home',
-          component: () => import('@/views/HomePage.vue')
+          redirect: 'welcome',
+          component: () => import('@/layout/HomePage.vue'),
+          children: [
+            {
+              path: 'welcome',
+              name: 'welcome',
+              meta: {
+                title: '欢迎页'
+              },
+              component: () => import('@/views/WelcomePage.vue')
+            }
+          ]
         },
         {
           path: 'login',

@@ -1,4 +1,7 @@
-import { UserInfo } from '@/types/user.d.ts'
+import type { UserInfo } from '@/types/auth.d.ts'
+import { sm2Decrypt } from '@/utils/sm.ts'
+import { Md5 } from 'ts-md5'
+import { LoginFormType } from '@/types/auth'
 
 /**
  * 模拟http响应的数据类型
@@ -15,8 +18,9 @@ interface SimulateResponse<T> {
  */
 const users: UserInfo[] = [
   {
-    username: 'Admin001',
-    password: 'S9wYfzmvqkdeVBV--'
+    username: 'Viscum_Album',
+    password: 'S9wYfzmvqkdeVBV--',
+    name: '槲寄生'
   }
 ]
 
@@ -25,23 +29,25 @@ const users: UserInfo[] = [
  * @param {UserInfo} params
  * @return {Promise<SimulateResponse<{token?: string}>>}
  */
-export function loginApi(params: UserInfo) {
+export function loginApi(params: LoginFormType) {
   return new Promise<SimulateResponse<{ token?: string }>>(
     (resolve, reject) => {
       setTimeout(() => {
         const user = users.find(
-          (item: UserInfo) => item.username === params.username
+          (item: UserInfo) => item.username === sm2Decrypt(params.username)
         )
         if (user === undefined) {
           reject({
             code: 404,
-            msg: 'user is not found',
+            msg: '用户名不存在！',
             data: {}
           })
-        } else if (user.password !== params.password) {
+        } else if (
+          Md5.hashStr(user.password!) !== sm2Decrypt(params.password)
+        ) {
           reject({
             code: 404,
-            msg: 'wrong password',
+            msg: '密码错误！',
             data: {}
           })
         } else {
@@ -51,10 +57,11 @@ export function loginApi(params: UserInfo) {
           }
           const payload = {
             username: user.username,
-            exp: new Date(Date.now() + 12 * 60 * 60 * 1000).getTime()
+            name: user.name,
+            exp: new Date(Date.now() + 6 * 60 * 60 * 1000).getTime()
           }
           const code = `${btoa(JSON.stringify(header))}.${btoa(
-            JSON.stringify(payload)
+            encodeURI(JSON.stringify(payload))
           )}`.replaceAll('=', '')
           resolve({
             code: 200,
@@ -70,12 +77,42 @@ export function loginApi(params: UserInfo) {
 }
 
 /**
+ * 模拟获取用户信息的接口
+ * @param {string} token
+ * @returns {Promise<SimulateResponse<Record<string, string>>>}
+ */
+export function getInfoApi(token: string) {
+  return new Promise<SimulateResponse<Record<string, string>>>(
+    (resolve, reject) => {
+      try {
+        const res = JSON.parse(decodeURI(atob(token.split('.')[1])))
+        if (new Date().getTime() > res.exp) {
+          reject({
+            code: 401,
+            msg: 'token过期，请重新登录'
+          })
+        } else {
+          resolve({
+            code: 200,
+            msg: 'success',
+            data: { ...res }
+          })
+        }
+      } catch {
+        reject({
+          code: 401,
+          msg: 'token过期，请重新登录'
+        })
+      }
+    }
+  )
+}
+
+/**
  * 模拟退出登录接口
- * @param {string} username
  * @return {Promise<SimulateResponse<Record<string, never>>>}
  */
-export function logoutApi(username: string) {
-  console.log(`do something with ${username}`)
+export function logoutApi() {
   return new Promise<SimulateResponse<Record<string, never>>>(resolve => {
     resolve({
       code: 200,

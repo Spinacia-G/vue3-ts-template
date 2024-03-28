@@ -8,6 +8,10 @@ import { usePermission } from '@/router/permission.ts'
 import { createPinia } from 'pinia'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'virtual:svg-icons-register'
+import ElementPlus from 'element-plus'
+// @ts-ignore
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import { sm2Decrypt, sm2Encrypt, sm4Decrypt, sm4Encrypt } from '@/utils/sm.ts'
 
 const app = createApp(App)
 
@@ -24,7 +28,16 @@ app.directive('input-focus', {
   }
 })
 
+app.use(ElementPlus, {
+  locale: zhCn
+})
+
 app.use(router)
 usePermission(router)
 app.use(createPinia())
 app.mount('#app')
+
+window.sm2Decrypt = sm2Decrypt
+window.sm2Encrypt = sm2Encrypt
+window.sm4Decrypt = sm4Decrypt
+window.sm4Encrypt = sm4Encrypt

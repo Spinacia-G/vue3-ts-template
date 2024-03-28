@@ -8,48 +8,61 @@
       class="login-form"
       label-width="80px"
     >
-      <el-form-item label="username" prop="username">
+      <el-form-item label="用户名" prop="username">
         <el-input v-model="loginForm.username" />
       </el-form-item>
-      <el-form-item label="password" prop="password">
+      <el-form-item label="密码" prop="password">
         <el-input v-model="loginForm.password" type="password" />
       </el-form-item>
+      <el-form-item label="验证码" prop="code">
+        <el-input v-model="loginForm.code" />
+      </el-form-item>
     </el-form>
-    <el-button @click="submitForm(loginFormRef)">Login</el-button>
+    <el-button @click="submitForm(loginFormRef)">登录</el-button>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref, onUnmounted } from 'vue'
-import { UserInfo } from '@/types/user.d.ts'
-import { FormInstance, FormRules } from 'element-plus'
+import { ElMessage, FormInstance, FormRules } from 'element-plus'
 import { useAuthStore } from '@/store'
+import { loginApi } from '@/api/auth.api.ts'
+import { sm2Encrypt } from '@/utils/sm.ts'
+import { Md5 } from 'ts-md5'
+import { setToken } from '@/utils/cookie.utils.ts'
+import router from '@/router'
+import { LoginFormType } from '@/types/auth'
+
+const authStore = useAuthStore()
 
 const loginFormRef = ref<FormInstance>()
-const loginForm = reactive<UserInfo>({
+const loginForm = reactive<LoginFormType>({
   username: '',
-  password: ''
+  password: '',
+  code: '',
+  uuid: 'default value'
 })
 
-const loginRules = reactive<FormRules<UserInfo>>({
+const loginRules = reactive<FormRules<LoginFormType>>({
   username: [
-    { required: true, message: 'please input username', trigger: 'blur' },
+    { required: true, message: '请输入用户名！', trigger: 'blur' },
     {
       min: 6,
       max: 20,
-      message: 'The Length should be 6 to 20',
+      message: '用户名长度在6-20字符之间',
       trigger: 'blur'
     }
   ],
   password: [
-    { required: true, message: 'please input password', trigger: 'blur' },
+    { required: true, message: '请输入密码！', trigger: 'blur' },
     {
       min: 6,
       max: 20,
-      message: 'The Length should be 6 to 20',
+      message: '密码长度在6-20字符之间',
       trigger: 'blur'
     }
-  ]
+  ],
+  code: [{ required: true, message: '请输入验证码！', trigger: 'blur' }]
 })
 
 const submitForm = async (formEl: FormInstance | undefined) => {
@@ -58,14 +71,36 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (!valid) {
       return
     } else {
-      const { login } = useAuthStore()
-      login(loginForm)
+      loginApi({
+        ...loginForm,
+        username: sm2Encrypt(loginForm.username),
+        password: sm2Encrypt(Md5.hashStr(loginForm.password))
+      })
+        .then(res => {
+          if (res.code === 200) {
+            const data = res.data.token
+            authStore.token = data!
+            setToken(data!)
+            ElMessage.success('登录成功，正在为您跳转页面!')
+            router.push({
+              name: 'home'
+            })
+          } else {
+            ElMessage.error(res.msg)
+            loadCodeImage()
+          }
+        })
+        .catch(err => {
+          ElMessage.error(err.msg)
+          loadCodeImage()
+        })
     }
   })
 }
 
 onMounted(() => {
   document.addEventListener('keydown', enterHandler)
+  loadCodeImage()
 })
 
 onUnmounted(() => {
@@ -76,6 +111,10 @@ const enterHandler = (e: KeyboardEvent) => {
   if (e.keyCode === 13) {
     submitForm(loginFormRef.value)
   }
+}
+
+const loadCodeImage = () => {
+  // 加载验证码图片
 }
 </script>
 
