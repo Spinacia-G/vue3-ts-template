@@ -29,9 +29,9 @@ const logout = () => {
 
 <template>
   <div class="header-container">
-    <div>hello, {{ authStore.user.name }}</div>
+    <div>{{ authStore.user.name }}</div>
     <el-button class="push" @click="logout">
-      <svg-icon name="arrow-left-box" />
+      <svg-icon class="h-4 w-4" name="arrow-left-box" />
       <span>退出登录</span>
     </el-button>
   </div>

@@ -37,6 +37,10 @@ module.exports = {
     '@typescript-eslint/no-empty-function': ['off'],
     // 允许使用ts-ignore
     '@typescript-eslint/ban-ts-ignore': ['off'],
-    '@typescript-eslint/ban-ts-comment': ['off']
+    '@typescript-eslint/ban-ts-comment': ['off'],
+    // 允许使用this别名
+    '@typescript-eslint/no-this-alias': ['off'],
+    // 允许文件使用单个单词命名
+    'vue/multi-word-component-names': 0
   }
 }

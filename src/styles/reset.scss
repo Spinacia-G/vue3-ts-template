@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-  // box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Prevent font size inflation */
@@ -24,14 +24,14 @@ ol[role='list'] {
 
 /* Set core body defaults */
 body {
-  line-height: 1.5;
+  line-height: 1;
   min-height: 100vh;
 }
 
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,
 button, input, label {
-  line-height: 1.1;
+  line-height: 1;
 }
 
 /* Balance text wrapping on headings */
@@ -85,4 +85,30 @@ input:-webkit-autofill:focus {
 
 input[data-autocompleted] {
   background-color: transparent !important;
+}
+
+// 隐藏type="number"时的增减按钮
+input {
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+// 全局滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgb(150 150 150 / 15%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

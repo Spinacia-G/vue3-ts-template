@@ -47,10 +47,12 @@ module.exports = {
     // 允许空的<style>
     'no-empty-source': null,
     'no-descending-specificity': null,
-    // 允许类名中出现'__'的语法
-    "selector-class-pattern": null,
-    "property-no-vendor-prefix": null,
-    "declaration-block-no-redundant-longhand-properties": null,
+    // 不对类选择器进行校验
+    'selector-class-pattern': null,
+    // 不对id选择器进行校验
+    'selector-id-pattern': null,
+    'property-no-vendor-prefix': null,
+    'declaration-block-no-redundant-longhand-properties': null,
     'selector-pseudo-element-no-unknown': [
       true,
       {
@@ -66,6 +68,8 @@ module.exports = {
     'media-feature-name-no-unknown': true,
     'no-duplicate-at-import-rules': true,
     'declaration-empty-line-before': 'never',
+    // 允许未知的rule
+    'scss/at-rule-no-unknown': null,
     // 指定样式的排序
     'order/properties-order': [
       'font',

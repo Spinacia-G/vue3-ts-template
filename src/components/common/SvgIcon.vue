@@ -15,6 +15,9 @@ export default defineComponent({
     color: {
       type: String,
       default: '#fff'
+    },
+    title: {
+      type: String
     }
   },
   setup(props) {
@@ -26,6 +29,7 @@ export default defineComponent({
 
 <template>
   <svg aria-hidden="true">
+    <title>{{ title }}</title>
     <use :fill="color" :href="symbolId" style="pointer-events: none" />
   </svg>
 </template>

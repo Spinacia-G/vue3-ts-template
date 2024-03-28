@@ -61,5 +61,15 @@ export default defineConfig({
         additionalData: '@import "@/styles/variables.scss";'
       }
     }
+  },
+  server: {
+    port: 7654,
+    proxy: {
+      '/dev-api': {
+        target: 'http://xxx.com:80/xxx',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/dev-api/, '')
+      }
+    }
   }
 })

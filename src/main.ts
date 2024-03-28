@@ -41,3 +41,8 @@ window.sm2Decrypt = sm2Decrypt
 window.sm2Encrypt = sm2Encrypt
 window.sm4Decrypt = sm4Decrypt
 window.sm4Encrypt = sm4Encrypt
+
+// 禁用右键
+// document.oncontextmenu = () => {
+//   return false
+// }
