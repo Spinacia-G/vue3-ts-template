@@ -1,6 +1,29 @@
 # Project Template
 基于`Vue3`、`Typescript`、`Vite`的项目模板
 
+## Usage
+
+> This project requires Node >=16 [ES compatibility table](https://compat-table.github.io/compat-table/es2016plus/)
+
+#### Install
+
+```bash
+pnpm install
+# If you don't have pnpm installed, run: npm install pnpm -g
+```
+
+#### Development
+
+```bash
+pnpm dev
+```
+
+#### Build
+
+```bash
+pnpm build:prod
+```
+
 ## Branches
 
 | Branch Name | Features |
@@ -15,6 +38,7 @@
 - `asserts` 静态资源
 - `components` 公共组件
 - `config` 全局配置文件
+- `layout` 布局
 - `router` 路由
 - `store` 全局状态管理器
 - `styles` 样式文件
@@ -82,6 +106,8 @@
 - 引入其他常用的公共组件
 
 ---
+
+## Cheat Sheet
 
 #### window全局变量声明
 
