@@ -8,6 +8,9 @@
 #### Install
 
 ```bash
+# config registry
+npm config set registry https://registry.npm.org/
+
 pnpm install
 # If you don't have pnpm installed, run: npm install pnpm -g
 ```
@@ -23,14 +26,6 @@ pnpm dev
 ```bash
 pnpm build:prod
 ```
-
-## Branches
-
-| Branch Name | Features |
-| :-- | :-- |
-| [main](https://github.com/SpinaciaKeh/vue3-ts-template/tree/main) | [base features](#features) |
-| [map-2d](https://github.com/SpinaciaKeh/vue3-ts-template/tree/map-2d) | [base features](#features) & [map class](#map-features) (with openlayers) |
-| map-3d | [base features](#features) & map class (with Cesium) (**to-do**) |
 
 ## Project Structure
 
@@ -96,22 +91,13 @@ pnpm build:prod
     - 压缩文件默认输出到`/release`目录，在`.gitignore`中被忽略
     - 输出目录可选 (**to-do**)
 
-## Map Features
-
-- 封装地图相关的一些常用功能 (**to-do**)
-
-## Other TODO
-
-- 根据实际项目开发情况完善eslint等校验规则的配置
-- 引入其他常用的公共组件
-
 ---
 
 ## Cheat Sheet
 
 #### window全局变量声明
 
-1、在`types/window.d.ts`中配置
+1、在 `types/window.d.ts` 中配置
 
 ```typescript
 export {}
@@ -127,11 +113,12 @@ declare global {
 
 1、安装依赖包
 
-`pnpm add postcss-pxtorem`
+```bash
+pnpm add postcss-pxtorem
+pnpm add amfe-flexible
+```
 
-`pnpm add amfe-flexible`
-
-2、在vite.config.ts中配置
+2、在 `vite.config.ts` 中配置
 
 ```typescript
 import postCssPxToRem from 'postcss-pxtorem'
@@ -149,9 +136,32 @@ css: {
   }
 ```
 
-3、在main.ts中引入
+3、在 `main.ts` 中引入
 
 ```typescript
 import 'amfe-flexible'
 ```
 
+#### Subdomain
+
+在 `nginx.conf` 中配置：
+
+```nginx
+server {
+  listen 7777;
+  server_name localhost;
+  
+  location / {
+    ...
+  }
+  
+  location /subdomain-name {
+    # 注意这里要用 alias
+    alias D:\...\dist;
+    index index.html;
+    try_files $uri $uri/ /subdomain-name/index.html;
+  }
+}
+```
+
+`/subdomain-name/` 与 `.env` 中的 `VITE_SUB_DOMAIN` 值保持一致

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import eslintPlugin from 'vite-plugin-eslint'
@@ -11,7 +11,9 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // import compression from 'vite-plugin-compression2'
 
 const pathSrc = path.resolve(__dirname, 'src')
+const env = loadEnv('', process.cwd())
 export default defineConfig({
+  base: env.VITE_SUB_DOMAIN,
   plugins: [
     vue(),
     eslintPlugin({
