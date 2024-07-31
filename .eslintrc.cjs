@@ -35,6 +35,8 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': ['off'],
     // 允许使用空函数
     '@typescript-eslint/no-empty-function': ['off'],
+    // 允许未使用的变量
+    '@typescript-eslint/no-unused-vars': ['off'],
     // 允许使用ts-ignore
     '@typescript-eslint/ban-ts-ignore': ['off'],
     '@typescript-eslint/ban-ts-comment': ['off'],
