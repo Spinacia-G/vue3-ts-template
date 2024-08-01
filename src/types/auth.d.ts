@@ -1,9 +1,14 @@
+/**
+ * 用户信息
+ */
 export interface UserInfo {
   // 用户名
   username: string
-  // 密码
-  password?: string
-  name?: string
+  // 用户昵称
+  nickname: string
+  // 邮箱
+  email: string
+  job: string
 }
 
 /**

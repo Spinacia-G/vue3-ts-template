@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@faker-js/faker": "9.0.0-alpha.1",
     "@vueuse/core": "^10.9.0",
     "axios": "1.6.8",
     "crypto-js": "^4.2.0",

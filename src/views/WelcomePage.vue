@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { USERS } from '@/mock/auth.mock.ts'
+
+console.table(USERS)
+</script>
 
 <template>
   <div class="main-container">

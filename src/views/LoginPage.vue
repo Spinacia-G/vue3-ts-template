@@ -32,16 +32,12 @@ import { Md5 } from 'ts-md5'
 import { setToken } from '@/utils/cookie.ts'
 import router from '@/router'
 import { LoginFormType } from '@/types/auth'
+import { createRandomAccount } from '@/mock/auth.mock.ts'
 
 const authStore = useAuthStore()
 
 const loginFormRef = ref<FormInstance>()
-const loginForm = reactive<LoginFormType>({
-  username: '',
-  password: '',
-  code: '',
-  uuid: 'default value'
-})
+const loginForm = reactive<LoginFormType>(createRandomAccount())
 
 const loginRules = reactive<FormRules<LoginFormType>>({
   username: [

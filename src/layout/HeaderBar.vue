@@ -2,22 +2,22 @@
 import { onMounted } from 'vue'
 import { useAuthStore } from '@/store'
 import { getInfoApi, logoutApi } from '@/api/auth.api.ts'
-import { getToken, removeToken } from '@/utils/cookie.ts'
+import { removeToken } from '@/utils/cookie.ts'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
+import { HttpResponse } from '@/types/http'
+import { UserInfo } from '@/types/auth'
 
 const authStore = useAuthStore()
 
 onMounted(() => {
-  // 真实请求不需要在参数中加token
-  getInfoApi(getToken()).then((res: any) => {
+  getInfoApi().then((res: HttpResponse<UserInfo>) => {
     authStore.setUserInfo(res.data)
   })
 })
 
 const logout = () => {
   logoutApi().then(() => {
-    authStore.setUserInfo(undefined)
     removeToken()
     ElMessage.success('登出成功，正在返回到登录页面!')
     router.push({
@@ -29,7 +29,7 @@ const logout = () => {
 
 <template>
   <div class="header-container">
-    <div>{{ authStore.user.name }}</div>
+    <div>{{ authStore.user.nickname }}</div>
     <el-button class="push" @click="logout">
       <svg-icon class="h-4 w-4" name="arrow-left-box" />
       <span>退出登录</span>
