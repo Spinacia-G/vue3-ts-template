@@ -141,7 +141,7 @@ declare global {
 }
 ```
 
-#### UI fit
+#### UI fit 1.0
 
 1、安装依赖包
 
@@ -174,13 +174,24 @@ css: {
 import 'amfe-flexible'
 ```
 
+#### UI fit 2.0
+
+在 `src/styles/reset.scss` 中配置
+```scss
+html {
+  font-size: calc(1 / 1080 * 100vh);
+}
+```
+
+浏览器窗口的 `100vh` 对应设计稿纵向的 `1080px` ，所有 `CSS` 语句使用 `rem` 作为单位。
+
 #### Subdomain
 
 在 `nginx.conf` 中配置：
 
 ```nginx
 server {
-  listen 7777;
+  listen xxx;
   server_name localhost;
   
   location / {

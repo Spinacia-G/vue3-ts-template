@@ -67,6 +67,9 @@ def zip_folder_and_copy(more_info):
     # 压缩文件夹
     zip = zipfile.ZipFile(release_path, 'w', zipfile.ZIP_DEFLATED)
     for path, dir_names, filenames in os.walk(dist_path):
+        if 'ignore-string' in path:
+            continue
+
         fpath = path.replace(dist_path, '')
         for filename in filenames:
             zip.write(os.path.join(path, filename), os.path.join(fpath, filename))
