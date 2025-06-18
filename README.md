@@ -47,6 +47,7 @@ pnpm build:prod
 - 构建项目 [`Vite`](https://vitejs.dev/guide/)
   - `vite-plugin-compression` 对打包资源进行gzip压缩
   - [`vite-plugin-svg-icons`](https://github.com/vbenjs/vite-plugin-svg-icons) 引入svg图标的解决方案
+  - `rollup-plugin-visualizer` 打包体积可视化
 - 前端框架 `Vue3`
   - `<script setup>`
 - 包管理 `pnpm`
@@ -63,7 +64,7 @@ pnpm build:prod
 - HTTP库 `Axios`
 - Mock [`faker.js`](https://github.com/faker-js/faker)
 - 代码规范 `Eslint` + `Prettier` + [`Stylelint`](https://github.com/stylelint-scss/stylelint-scss)
-  - 一行80个字符/空格缩进2字符/不使用分号/单引号/不使用尾逗号
+  - 一行120个字符/空格缩进2字符/不使用分号/单引号/不使用尾逗号
 - 提交规范 `Husky`
 - 其他
   - 几种常用的加密方式：`RSA`、`AES`、`sm2`、`sm4`
@@ -72,6 +73,7 @@ pnpm build:prod
   - `/plugins/zip.py` python脚本文件，将打包文件压缩为zip格式并复制到剪贴板
     - 在`package.json`中配置`zip`脚本，自动执行python指令，参数从命令行传入
     - 压缩文件默认输出到`/release`目录，在`.gitignore`中被忽略
+  - `/plugins/font-subset.py` 字符集预处理脚本，字体文件只保留用到的字符，减小静态资源体积
 
 ## Naming
 
