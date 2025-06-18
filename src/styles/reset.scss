@@ -1,3 +1,7 @@
+// :root {
+//   --base-height-pixel: 980;
+// }
+
 /* Box sizing rules */
 *,
 *::before,
@@ -8,6 +12,8 @@
 /* Prevent font size inflation */
 html {
   text-size-adjust: none;
+
+  // font-size: calc(1 / var(--base-height-pixel) * 100vh);
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -25,6 +31,7 @@ ol[role='list'] {
 /* Set core body defaults */
 body {
   line-height: 1;
+  overflow: hidden;
   min-height: 100vh;
 }
 
@@ -32,12 +39,6 @@ body {
 h1, h2, h3, h4,
 button, input, label {
   line-height: 1;
-}
-
-/* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
-  text-wrap: normal;
 }
 
 /* A elements that don't have a class get default styles */

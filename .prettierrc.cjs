@@ -1,6 +1,6 @@
 module.exports = {
-  // 一行不超过80个字符
-  printWidth: 80,
+  // 一行不超过120个字符
+  printWidth: 120,
   // 一个tab代表2个空格
   tabWidth: 2,
   // 使用空格进行缩进

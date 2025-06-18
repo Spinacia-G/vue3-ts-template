@@ -1,7 +1,10 @@
 import { createApp } from 'vue'
 import '@/styles/index.scss'
+import '@/styles/tailwind.scss'
 import 'nprogress/nprogress.css'
 import 'element-plus/es/components/message/style/css'
+// if [ effect="dark" ]
+// import 'element-plus/theme-chalk/dark/css-vars.css'
 import App from './App.vue'
 import router from '@/router'
 import { usePermission } from '@/router/permission.ts'

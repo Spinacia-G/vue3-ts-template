@@ -6,8 +6,7 @@ const publicKey: string =
   '040174b19c5799f2512b0151237c271dfee9a4330be143d282f778087b351cc05c2d100087c9a5177b97c990424315c568fdc3db80fba873383183c7b3e038ffcd'
 
 // sm2私钥
-const privateKey: string =
-  '3de823b082f0cf9a1b2b3e5f3e022d10ddff41ab3acb5d67e419ea209a69e22d'
+const privateKey: string = '3de823b082f0cf9a1b2b3e5f3e022d10ddff41ab3acb5d67e419ea209a69e22d'
 
 // sm4密钥 十六进制形式 (如果是ASCII需要转换)
 const sm4key: string = '0123456789abcdeffedcba9876543210'

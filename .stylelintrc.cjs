@@ -29,7 +29,7 @@ module.exports = {
   ],
   rules: {
     // import中保留扩展名
-    'scss/at-import-partial-extension': 'always',
+    'scss/at-import-partial-extension': null,
     // 禁止不合法的颜色值
     'color-no-invalid-hex': true,
     'font-family-no-missing-generic-family-keyword': true,

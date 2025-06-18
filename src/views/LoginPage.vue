@@ -1,13 +1,7 @@
 <template>
   <div class="login-box">
     <div>Website Name</div>
-    <el-form
-      ref="loginFormRef"
-      :model="loginForm"
-      :rules="loginRules"
-      class="login-form"
-      label-width="80px"
-    >
+    <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form" label-width="80px">
       <el-form-item label="用户名" prop="username">
         <el-input v-model="loginForm.username" />
       </el-form-item>
@@ -125,7 +119,7 @@ const loadCodeImage = () => {
   height: 300px;
   margin: auto;
   transition: all 0.2s ease;
-  border: 1px solid $border-color;
+  border: 1px solid #ddd;
   border-radius: 10px;
   background-color: rgb(243 243 241 / 50%);
   gap: 2rem;
