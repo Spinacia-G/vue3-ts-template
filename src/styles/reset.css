@@ -1,0 +1,54 @@
+body,
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* global scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: n-resize;
+  background: rgb(150 150 150 / 15%);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(150 160 170 / 30%);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+input {
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+}

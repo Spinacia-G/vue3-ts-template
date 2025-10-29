@@ -25,9 +25,6 @@ dist-ssr
 
 release
 
-src/auto-imports.d.ts
-src/components.d.ts
-
 stats.html
 
 vite.config.ts.timestamp-*.mjs

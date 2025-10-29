@@ -5,15 +5,17 @@
 import os
 
 cur_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-source_path = cur_path + '\\src\\assets\\font\\source\\fontName.ttf'
-output_path = cur_path + '\\src\\assets\\font\\fontName.ttf'
+source_path = cur_path + '\\src\\assets\\fonts\\source\\Qasbyne.otf'
+output_path = cur_path + '\\src\\assets\\fonts\\Qasbyne.otf'
 
 def merge_array(arr):
     merged = ''.join(arr)
     return ''.join(dict.fromkeys(merged))
 
 arr = [
-    'test'
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    'abcdefghijklmnopqrstuvwxyz',
+    '.,/[]-_=',
 ]
 
 subset_str = merge_array(arr)

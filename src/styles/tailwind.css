@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme {
+  /* custom variables */
+  --font-header: qasbyne, ui-sans-serif, system-ui, sans-serif;
+}

@@ -1,7 +1,9 @@
-auto-imports.d.ts
-components.d.ts
+node_modules
+dist
+docs
+public
+release
+plugins
 
-/node_modules/*
-/dist/*
-/public/*
-/release/*
+src/auto-imports.d.ts
+src/components.d.ts

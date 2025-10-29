@@ -1,0 +1,8 @@
+.gradient-text {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-vertical {
+  writing-mode: vertical-lr;
+}

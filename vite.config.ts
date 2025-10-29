@@ -1,80 +1,72 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+import autoprefixer from 'autoprefixer'
 import path from 'path'
-import eslintPlugin from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import { visualizer } from 'rollup-plugin-visualizer'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-// import compression from 'vite-plugin-compression2'
+import ElementPlus from 'unplugin-element-plus/vite'
+import svgLoader from 'vite-svg-loader'
+import { visualizer } from 'rollup-plugin-visualizer'
+import BuildLogger from './plugins/build-logger'
 
-export default ({ mode }) => {
-  const pathSrc = path.resolve(__dirname, 'src')
-  const env = loadEnv(mode, process.cwd())
+const pathSrc = path.resolve(__dirname, 'src')
 
-  return defineConfig({
-    base: env.VITE_SUB_DOMAIN,
+// https://vite.dev/config/
+
+/** @type {import('vite').UserConfig} */
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+
+  return {
+    base: env.VITE_BASE,
+    resolve: {
+      alias: {
+        '@': pathSrc,
+      },
+    },
     plugins: [
       vue(),
-      eslintPlugin({
-        include: ['src/**/*.ts', 'src/**/*.vue', 'src/*.ts', 'src/*.vue'],
-        cache: false,
-        fix: true
-      }),
+      tailwindcss(),
       AutoImport({
+        include: [/\.vue$/, /\.vue\?vue/],
         imports: ['vue'],
-        resolvers: [
-          ElementPlusResolver(),
-          IconsResolver({
-            prefix: 'Icon'
-          })
-        ],
-        dts: path.resolve(pathSrc, 'auto-imports.d.ts')
+        resolvers: [ElementPlusResolver()],
+        dirs: ['src/stores'],
+        dts: 'src/auto-imports.d.ts',
+        vueTemplate: true,
+        eslintrc: {
+          enabled: false,
+          filepath: './.eslintrc-auto-import.json',
+          globalsPropValue: true,
+        },
       }),
       Components({
-        resolvers: [
-          ElementPlusResolver(),
-          IconsResolver({
-            enabledCollections: ['ep']
-          })
-        ],
-        dts: path.resolve(pathSrc, 'components.d.ts')
+        extensions: ['vue'],
+        include: [/\.vue$/, /\.vue\?vue/],
+        resolvers: [ElementPlusResolver()],
+        dts: 'src/components.d.ts',
       }),
-      Icons({
-        autoInstall: true
-      }),
-      createSvgIconsPlugin({
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-        symbolId: 'icon-[dir]-[name]'
-      }),
-      visualizer()
-      // compression({
-      //   threshold: 20 * 1024 // 对大于20kb的文件进行压缩
-      // })
+      ElementPlus({ defaultLocale: 'zh-cn' }),
+      svgLoader(),
+      visualizer(),
+      BuildLogger(),
     ],
-    resolve: {
-      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
-      alias: {
-        '@': pathSrc
-      }
+    css: {
+      postcss: {
+        plugins: [autoprefixer()],
+      },
     },
     server: {
-      port: 7654,
       proxy: {
-        [env.VITE_ASSETS_API]: {
-          target: 'http://localhost:8011',
-          changeOrigin: true,
-          rewrite: path => path.replace(env.VITE_ASSETS_API, '')
-        },
         [env.VITE_BACKEND_API]: {
-          target: 'http://xxx.xx.xx.xx:8080/xxx',
+          target: 'http://localhost:13766/',
           changeOrigin: true,
-          rewrite: path => path.replace(env.VITE_BACKEND_API, '')
-        }
-      }
-    }
-  })
-}
+          rewrite: (path) =>
+            path.replace(new RegExp(`^${env.VITE_BACKEND_API}`), ''),
+        },
+      },
+    },
+  }
+})
