@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@vueuse/core": "13.9.0",
+    "axios": "^1.13.1",
     "dayjs": "^1.11.18",
     "element-plus": "~2.11.1",
     "lodash-es": "^4.17.21",

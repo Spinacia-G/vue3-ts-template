@@ -19,16 +19,17 @@ export const useAuthStore = defineStore('auth', () => {
   const isLoggedIn = computed(() => !!token.value)
 
   const login = async (username: string, password: string) => {
-    const { data } = await loginApi(username, password)
-    if (data.value) {
-      const { token, ...user } = data.value
+    const res = await loginApi(username, password)
+    if (res.data) {
+      const { token, ...user } = res.data
       setAuthToken(token)
       setUserInfo(user)
       router.push({ name: 'home' })
     }
   }
+
   const logout = async () => {
-    logoutApi(token.value)
+    await logoutApi(token.value)
     reset()
     router.push({ name: 'login' })
   }
